@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-11-11T22:05:41 IST" name="Suite" finished-at="2023-11-11T22:05:58 IST" duration-ms="17084">
+    <groups>
+    </groups>
+    <test started-at="2023-11-11T22:05:41 IST" name="Test" finished-at="2023-11-11T22:05:58 IST" duration-ms="17084">
+      <class name="NaukriTestcases.NaukriTestcases">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@6c130c45]" started-at="2023-11-11T22:05:41 IST" name="launchBrowser" finished-at="2023-11-11T22:05:47 IST" duration-ms="5745" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="LaunchUrl()[pri:0, instance:NaukriTestcases.NaukriTestcases@6c130c45]" started-at="2023-11-11T22:05:47 IST" name="LaunchUrl" finished-at="2023-11-11T22:05:49 IST" duration-ms="2115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchUrl -->
+        <test-method signature="user_Login()[pri:0, instance:NaukriTestcases.NaukriTestcases@6c130c45]" started-at="2023-11-11T22:05:49 IST" name="user_Login" finished-at="2023-11-11T22:05:53 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="3969" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user_Login -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@6c130c45]" started-at="2023-11-11T22:05:53 IST" name="closeBrowser" finished-at="2023-11-11T22:05:58 IST" duration-ms="5203" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- NaukriTestcases.NaukriTestcases -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
