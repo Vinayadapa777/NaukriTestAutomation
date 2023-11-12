@@ -7,7 +7,7 @@
         <methods>
           <include name="launchBrowser"/>
           <include name="closeBrowser"/>
-          <include name="user_Login"/>
+          <include name="user_Login" invocation-numbers="1"/>
           <include name="LaunchUrl"/>
         </methods>
       </class> <!-- NaukriTestcases.NaukriTestcases -->
