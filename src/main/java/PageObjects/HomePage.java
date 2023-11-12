@@ -5,7 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+import Utilities.ActionFunctions;
+import Utilities.Configurations;
+
+public class HomePage extends ActionFunctions {
     
     WebDriver driver;
 
@@ -16,5 +19,13 @@ public class HomePage {
     
     @FindBy(xpath="//div[@class='name-wrapper']/child::div")
     public WebElement userName;
-
+    @FindBy(xpath="//div[@class='nI-gNb-drawer__icon-img-wrapper']/child::img")
+    public WebElement profileIcon;
+    @FindBy(xpath="//a[@title='Logout']")
+    public WebElement logoutButton;
+    
+    public void Logout() {
+	click(profileIcon);
+	click(logoutButton);
+    }
 }
