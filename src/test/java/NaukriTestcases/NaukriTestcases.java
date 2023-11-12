@@ -16,7 +16,7 @@ public class NaukriTestcases extends ActionFunctions {
     public void LaunchUrl() {
 	String url = prop.getProperty("url");
 	launchUrl(url);
-	System.out.println("Actual Name :" + url + " Expected userName : " + driver.getCurrentUrl() + "");
+	System.out.println("Actual Url :" + url + " Expected Url : " + driver.getCurrentUrl() + "");
 	Assert.assertTrue(url.contains(driver.getCurrentUrl()));
     }
 
