@@ -17,9 +17,27 @@ public class ActionFunctions extends Configurations {
 	try {
 	    ele.isDisplayed();
 	    ele.click();
+	   // String printname=ele.getText()!=null?printname=ele.getText():printname=ele.getAttribute(printname);
+	    System.out.println("clicked on : "+ ele);
 	    flag = true;
+	    
 	} catch (Exception e) {
-	    System.out.println("No such element");
+	    System.out.println("No suchElement Exception");
+	    System.out.println("Unable to click on : "+ ele);
+	    flag = false;
+	}
+	return flag;
+    }
+    public Boolean type(WebElement ele,String text) {
+	boolean flag = false;
+	try {
+	    ele.isDisplayed();
+	    ele.sendKeys(text);
+	    System.out.println("Entered text : "+text);
+	    flag = true;
+	    
+	} catch (Exception e) {
+	    System.out.println("No suchElement Exception");
 	    flag = false;
 	}
 	return flag;

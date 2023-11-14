@@ -19,13 +19,19 @@ public class HomePage extends ActionFunctions {
     
     @FindBy(xpath="//div[@class='name-wrapper']/child::div")
     public WebElement userName;
-    @FindBy(xpath="//div[@class='nI-gNb-drawer__icon-img-wrapper']/child::img")
-    public WebElement profileIcon;
-    @FindBy(xpath="//a[@title='Logout']")
+    @FindBy(xpath="//div[@class='nI-gNb-drawer__bars']")
+    public WebElement logoutHamburger;
+    @FindBy(xpath="//a[@class='nI-gNb-list-cta']/child::span[contains(@class,'logout')]")
     public WebElement logoutButton;
     
-    public void Logout() {
-	click(profileIcon);
+    public void Logout() throws InterruptedException {
+	
+	//getScreenshot(" Before logoutHamburger");
+
+	click(logoutHamburger);
+	//getScreenshot(" after logoutHamburger");
+	Thread.sleep(5000);
 	click(logoutButton);
+	//getScreenshot("after logoutButton");
     }
 }

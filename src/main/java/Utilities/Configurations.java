@@ -1,5 +1,6 @@
 package Utilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 import java.io.FileNotFoundException;
@@ -9,6 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,7 +32,7 @@ public class Configurations {
     public static WebDriver driver;
     public Properties prop;
     FileInputStream fis = null;
-    String downloadPath = System.getProperty("user.dir") + "\\Downloads";
+    public String downloadPath = System.getProperty("user.dir") + "\\Downloads";
     String dataFile = System.getProperty("user.dir") + "\\data.pro";
 
     public WebDriver openBrowser() {
@@ -54,6 +59,8 @@ public class Configurations {
 	    co.setExperimentalOption("prefs", prefs);
 	    if (browserName.contains("headless")) {
 		co.addArguments("--headless");
+		co.addArguments("headless");
+
 	    }
 	    driver = new ChromeDriver(co);
 	} else if (browserName.contains("firefox")) {
@@ -77,11 +84,22 @@ public class Configurations {
 	}
 	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-	// Dimension ds = new Dimension(1400, 1080);
-	// driver.manage().window().setSize(ds);
+//	Dimension ds = new Dimension(1920, 1080);
+//	driver.manage().window().setSize(ds);
 	return driver;
     }
-
+    public void getScreenshot(String test) {
+	TakesScreenshot ts = (TakesScreenshot) driver;
+	File src = ts.getScreenshotAs(OutputType.FILE);
+	String destination = System.getProperty("user.dir") + "\\Captures"+test+".jpg";
+	try {
+	    FileUtils.copyFile(src, new File(destination));
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	
+}
     @BeforeTest
     public void launchBrowser() {
 	driver = openBrowser();

@@ -26,9 +26,9 @@ public class LoginPage extends ActionFunctions {
     
     public void userLogin(String userEmail,String Password) throws InterruptedException {
 	click(InitialLoginButton);
-	emailid.sendKeys(userEmail);
-	password.sendKeys(Password);
-	login.click();
+	type(emailid, userEmail);
+	type(password, Password);
+	click(login);
     }
 
 }
