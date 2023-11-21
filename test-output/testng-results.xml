@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-14T21:32:45 IST" name="Default suite" finished-at="2023-11-14T21:33:11 IST" duration-ms="25984">
+  <suite started-at="2023-11-21T17:20:48 IST" name="Default suite" finished-at="2023-11-21T17:21:23 IST" duration-ms="35233">
     <groups>
     </groups>
-    <test started-at="2023-11-14T21:32:45 IST" name="Default test" finished-at="2023-11-14T21:33:11 IST" duration-ms="25984">
+    <test started-at="2023-11-21T17:20:48 IST" name="Default test" finished-at="2023-11-21T17:21:23 IST" duration-ms="35233">
       <class name="NaukriTestcases.NaukriTestcases">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@47987356]" started-at="2023-11-14T21:32:45 IST" name="launchBrowser" finished-at="2023-11-14T21:32:49 IST" duration-ms="3642" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@741a8937]" started-at="2023-11-21T17:20:48 IST" name="launchBrowser" finished-at="2023-11-21T17:20:52 IST" duration-ms="3469" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="LaunchUrl()[pri:1, instance:NaukriTestcases.NaukriTestcases@47987356]" started-at="2023-11-14T21:32:49 IST" name="LaunchUrl" finished-at="2023-11-14T21:32:52 IST" duration-ms="3386" status="PASS">
+        <test-method signature="LaunchUrl()[pri:1, instance:NaukriTestcases.NaukriTestcases@741a8937]" started-at="2023-11-21T17:20:52 IST" name="LaunchUrl" finished-at="2023-11-21T17:20:55 IST" duration-ms="3788" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LaunchUrl -->
-        <test-method signature="user_Login(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:NaukriTestcases.NaukriTestcases@47987356]" started-at="2023-11-14T21:32:52 IST" name="user_Login" data-provider="userCredentials" finished-at="2023-11-14T21:33:06 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="13502" status="FAIL">
+        <test-method signature="user_Login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@741a8937]" started-at="2023-11-21T17:20:55 IST" name="user_Login" data-provider="userData" finished-at="2023-11-21T17:21:12 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="16433" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,44 +32,50 @@
                 <![CDATA[Vinay Adapa]]>
               </value>
             </param>
+            <param index="3">
+              <value>
+                <![CDATA[D:\VinayAutomation\Naukri\InputFiles\vinayresume.exe]]>
+              </value>
+            </param>
           </params>
-          <exception class="org.openqa.selenium.InvalidArgumentException">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user_Login -->
+        <test-method signature="user_Login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@741a8937]" started-at="2023-11-21T17:21:12 IST" name="user_Login" data-provider="userData" finished-at="2023-11-21T17:21:18 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="6169" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rajeswariramu98@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Raji@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Nallavala Rajeswari]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[D:\VinayAutomation\Naukri\InputFiles\rajeswariresume.exe]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[invalid argument
-  (Session info: chrome=119.0.6045.106)
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [892e388bd68ca2f1eaaa87e769e907e5, clickElement {id=ABAD243DE244D41F0D7B184D816BD3D3_element_209}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:3871}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:3871/devtool..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (892e388bd68ca2f1eaaa87e769e907e5)] -> xpath: //div[@class='uploadContainer']/child::input[@id='attachCV']]
-Session ID: 892e388bd68ca2f1eaaa87e769e907e5]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument
-  (Session info: chrome=119.0.6045.106)
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [892e388bd68ca2f1eaaa87e769e907e5, clickElement {id=ABAD243DE244D41F0D7B184D816BD3D3_element_209}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:3871}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:3871/devtool..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (892e388bd68ca2f1eaaa87e769e907e5)] -> xpath: //div[@class='uploadContainer']/child::input[@id='attachCV']]
-Session ID: 892e388bd68ca2f1eaaa87e769e907e5
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-at NaukriTestcases.NaukriTestcases.user_Login(NaukriTestcases.java:44)
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at Utilities.ActionFunctions.stringValidation(ActionFunctions.java:64)
+at NaukriTestcases.NaukriTestcases.user_Login(NaukriTestcases.java:31)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -100,11 +106,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.InvalidArgumentException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- user_Login -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@47987356]" started-at="2023-11-14T21:33:06 IST" name="closeBrowser" finished-at="2023-11-14T21:33:11 IST" duration-ms="5390" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@741a8937]" started-at="2023-11-21T17:21:18 IST" name="closeBrowser" finished-at="2023-11-21T17:21:23 IST" duration-ms="5301" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

@@ -1,6 +1,7 @@
 PageObjects\HomePage.class
 Utilities\ActionFunctions.class
-PageObjects\ProfilePage.class
+Utilities\Listeners.class
 PageObjects\LoginPage.class
+PageObjects\ProfilePage.class
 Utilities\Configurations.class
 PageObjects\JobSearchPage.class

@@ -1,4 +1,4 @@
-# Created at 2023-11-14T22:33:02.202
+# Created at 2023-11-21T17:23:17.353
 Boot Manifest-JAR contains absolute paths in classpath 'D:\VinayAutomation\Naukri\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

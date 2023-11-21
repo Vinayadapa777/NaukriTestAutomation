@@ -6,4 +6,6 @@ password1=Raji@123
 userName=Vinay Adapa
 userName1=Nallavala Rajeswari
 url=https://www.naukri.com/
-
+ReportName=Naukri test Results
+DocumentTitle=Naukri Test
+TesterName=UATTester

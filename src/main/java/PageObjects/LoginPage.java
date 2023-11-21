@@ -14,21 +14,22 @@ public class LoginPage extends ActionFunctions {
 	this.driver = driver;
 	PageFactory.initElements(driver, this);
     }
-    
-    @FindBy(xpath="//label[text()='Email ID / Username']/following-sibling::input")
+
+    @FindBy(xpath = "//label[text()='Email ID / Username']/following-sibling::input")
     public WebElement emailid;
-    @FindBy(xpath="//label[text()='Password']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='Password']/following-sibling::input")
     public WebElement password;
-    @FindBy(xpath="//button[text()='Login']")
+    @FindBy(xpath = "//button[text()='Login']")
     public WebElement login;
-    @FindBy(xpath="//a[@id='login_Layer']")
+    @FindBy(xpath = "//a[@id='login_Layer']")
     public WebElement InitialLoginButton;
-    
-    public void userLogin(String userEmail,String Password) throws InterruptedException {
+
+    public void userLogin(String userEmail, String Password) throws InterruptedException {
 	click(InitialLoginButton);
-	type(emailid, userEmail);
-	type(password, Password);
+	enter(emailid, userEmail);
+	enter(password, Password);
 	click(login);
+	Thread.sleep(2000);
     }
 
 }
