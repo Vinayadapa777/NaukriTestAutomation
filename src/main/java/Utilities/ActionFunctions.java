@@ -59,9 +59,10 @@ public class ActionFunctions extends Configurations {
     public boolean stringValidation(String expected, WebElement ele) {
 	boolean flag = false;
 	try {
+	    String expectedString=expected.toLowerCase();
 	    String actualString = ele.getText().toLowerCase();
-	    System.out.println("Actual Name :" + actualString + " Expected userName : " + expected.toLowerCase() + "");
-	    Assert.assertTrue(actualString.contains(expected.toLowerCase()));
+	    System.out.println("Actual Name :" + actualString + " Expected userName : " + expectedString + "");
+	    Assert.assertTrue(actualString.contains(expectedString));
 	    flag = true;
 	} catch (Exception e) {
 	    flag = false;

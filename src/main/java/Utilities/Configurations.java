@@ -138,7 +138,7 @@ public class Configurations {
 	}
 	String currentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH_mm_ss").format(new Date());
 	String fcurrentDateAndTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-	String fileName = "index_" + currentDateAndTime + ".html";
+	String fileName = "index_" + fcurrentDateAndTime + ".html";
 	String resultpath = System.getProperty("user.dir") + "\\TestResults\\" + fcurrentDateAndTime + "\\" + fileName;
 	ExtentSparkReporter sp = new ExtentSparkReporter(resultpath);
 	sp.config().setDocumentTitle(prop.getProperty("DocumentTitle"));
