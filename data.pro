@@ -1,4 +1,4 @@
-browser=chrome
+browser=chrome-headless
 emailid=vinayadapa7777@gmail.com
 password=Ashokadapa333@
 emailid1=rajeswariramu98@gmail.com
