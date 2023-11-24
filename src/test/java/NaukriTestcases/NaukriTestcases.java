@@ -23,7 +23,7 @@ public class NaukriTestcases extends ActionFunctions {
     }
 
     @Test(dependsOnMethods = ("LaunchUrl"), dataProvider = "userData")
-    public void user_Login(String userName, String password, String user, String resume) throws InterruptedException {
+    public void user_Updates(String userName, String password, String user, String resume) throws InterruptedException {
 	lp = new LoginPage(driver);
 	hp = new HomePage(driver);
 	pp = new ProfilePage(driver);
@@ -49,5 +49,24 @@ public class NaukriTestcases extends ActionFunctions {
     }
 
 
-
+//    @DataProvider(name = "userData")
+//    public Object[][] userCredentials(Method m) {
+//	String userName = prop.getProperty("emailid");
+//	String password = prop.getProperty("password");
+//	String user = prop.getProperty("userName");
+//	String userName1 = prop.getProperty("emailid1");
+//	String password1 = prop.getProperty("password1");
+//	String user1 = prop.getProperty("userName1");
+//	String fileuploadPath = System.getProperty("user.dir") + "\\InputFiles" + "\\vinayresume.exe";
+//	String fileuploadPath1 = System.getProperty("user.dir") + "\\InputFiles" + "\\rajeswariresume.exe";
+//	Object[][] usercredentials = { { userName, password, user }, { userName1, password1, user1 } };
+//	Object[][] resume = { { fileuploadPath }, { fileuploadPath1 } };
+//	String methodName = m.getName();
+//	if (methodName.equals("user_Login")) {
+//	    return usercredentials;
+//	} else if (methodName.equals("uploadResume")) {
+//	    return resume;
+//	}
+//	return null;
+//    }
 }

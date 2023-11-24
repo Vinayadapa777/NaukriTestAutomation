@@ -67,8 +67,7 @@ public class Configurations {
 	    co.setExperimentalOption("prefs", prefs);
 	    if (browserName.contains("headless")) {
 		co.addArguments("--headless");
-		co.addArguments("headless");
-
+		driver = new ChromeDriver(co);
 	    }
 	    driver = new ChromeDriver(co);
 	} else if (browserName.contains("firefox")) {
