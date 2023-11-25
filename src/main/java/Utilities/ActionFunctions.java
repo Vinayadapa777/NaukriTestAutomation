@@ -2,7 +2,10 @@ package Utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Base64;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -10,6 +13,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class ActionFunctions extends Configurations {
@@ -27,7 +32,7 @@ public class ActionFunctions extends Configurations {
     public boolean click(WebElement ele) {
 	boolean flag = false;
 	try {
-	    ele.isDisplayed();    
+	    ele.isDisplayed();
 	    System.out.println("clicked on : " + ele.getText());
 	    ele.click();
 	    screenCapture(driver);
@@ -59,7 +64,8 @@ public class ActionFunctions extends Configurations {
     public boolean stringValidation(String expected, WebElement ele) {
 	boolean flag = false;
 	try {
-	    String expectedString=expected.toLowerCase();
+	    String expectedString = expected.toLowerCase();
+	    Thread.sleep(3000);
 	    String actualString = ele.getText().toLowerCase();
 	    System.out.println("Actual Name :" + actualString + " Expected userName : " + expectedString + "");
 	    Assert.assertTrue(actualString.contains(expectedString));
@@ -83,5 +89,20 @@ public class ActionFunctions extends Configurations {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+    }
+
+    public String decodeBase64(String encodedString) {
+	byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+	return new String(decodedBytes, StandardCharsets.UTF_8);
+    }
+
+    public void explicitvisible(WebElement ele, long time) {
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+	wait.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    public void explicitClickable(WebElement ele, long time) {
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+	wait.until(ExpectedConditions.elementToBeClickable(ele));
     }
 }

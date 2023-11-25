@@ -1,10 +1,10 @@
 package Utilities;
 
 import org.openqa.selenium.WebDriver;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -14,7 +14,6 @@ public class Listeners extends Configurations implements ITestListener {
     ExtentReports ext = Configurations.reporter();
     ThreadLocal<ExtentTest> extent = new ThreadLocal<ExtentTest>();
 
-    @Override
     public void onTestStart(ITestResult result) {
 	test = ext.createTest(result.getMethod().getMethodName());
 	extent.set(test);
@@ -35,7 +34,7 @@ public class Listeners extends Configurations implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
 	// TODO Auto-generated method stub
-	ITestListener.super.onTestSkipped(result);
+	//ITestListener.super.onTestSkipped(result);
     }
 
     @Override

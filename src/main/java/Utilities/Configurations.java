@@ -14,6 +14,7 @@ import java.util.Properties;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -51,7 +52,7 @@ public class Configurations {
 	    e.printStackTrace();
 	}
 	prop = new Properties();
-	try {
+	try { 
 	    prop.load(fis);
 	} catch (IOException e) {
 	    e.printStackTrace();
@@ -66,33 +67,44 @@ public class Configurations {
 	    prefs.put("download.default_directory", downloadPath);
 	    co.setExperimentalOption("prefs", prefs);
 	    if (browserName.contains("headless")) {
-		co.addArguments("--headless");
-		driver = new ChromeDriver(co);
+		co.addArguments("--headless", "--window-size=1920,1080",
+			"--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36");
+
 	    }
 	    driver = new ChromeDriver(co);
+	    if (!browserName.contains("headless")) {
+		driver.manage().window().maximize();
+	    } else {
+		driver.manage().window().setSize(new Dimension(1920, 1080));
+	    }
 	} else if (browserName.contains("firefox")) {
 	    FirefoxOptions fo = new FirefoxOptions();
 	    if (browserName.contains("headless")) {
 		fo.addArguments("--headless");
 	    }
 	    driver = new FirefoxDriver(fo);
-
+	    if (!browserName.contains("headless")) {
+		driver.manage().window().maximize();
+	    } else {
+		driver.manage().window().setSize(new Dimension(1920, 1080));
+	    }
 	} else if (browserName.contains("edge")) {
 	    EdgeOptions eo = new EdgeOptions();
 	    if (browserName.contains("headless")) {
 		eo.addArguments("--headless");
 	    }
 	    driver = new EdgeDriver(eo);
-
+	    if (!browserName.contains("headless")) {
+		driver.manage().window().maximize();
+	    } else {
+		driver.manage().window().setSize(new Dimension(1920, 1080));
+	    }
 	} else if (browserName.contains("ie")) {
 	    // InternetExplorerOptions io = new InternetExplorerOptions();
 	    // As of now there is no headless mode for this IE browser
 	    driver = new InternetExplorerDriver();
 	}
-	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-//	Dimension ds = new Dimension(1920, 1080);
-//	driver.manage().window().setSize(ds);
 	return driver;
     }
 
@@ -118,11 +130,10 @@ public class Configurations {
 	}
 	return destination;
     }
-   
 
     public static ExtentReports reporter() {
 	Properties prop;
-	    FileInputStream fis = null;
+	FileInputStream fis = null;
 	try {
 	    fis = new FileInputStream(dataFile);
 	} catch (FileNotFoundException e) {
