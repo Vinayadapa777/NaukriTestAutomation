@@ -9,5 +9,4 @@ url=https://www.naukri.com/
 ReportName=Naukri test Results
 DocumentTitle=Naukri Test
 TesterName=UATTester
-//Sample
-//Test sample 
+//This is just for testing
