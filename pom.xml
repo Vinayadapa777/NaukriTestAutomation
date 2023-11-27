@@ -14,7 +14,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
-	 <profiles>
+	<profiles>
 		<profile>
 			<id>Regression</id>
 			<build>
@@ -36,7 +36,7 @@
 			<id>Smoke</id>
 			<build>
 				<plugins>
-					
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
@@ -115,6 +115,13 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.0.9</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.assertthat/selenium-shutterbug -->
+		<dependency>
+			<groupId>com.assertthat</groupId>
+			<artifactId>selenium-shutterbug</artifactId>
+			<version>1.6</version>
+		</dependency>
+
 
 	</dependencies>
 </project>

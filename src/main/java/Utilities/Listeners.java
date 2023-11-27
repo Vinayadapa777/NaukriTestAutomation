@@ -1,10 +1,10 @@
 package Utilities;
 
 import org.openqa.selenium.WebDriver;
-
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -34,7 +34,7 @@ public class Listeners extends Configurations implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
 	// TODO Auto-generated method stub
-	//ITestListener.super.onTestSkipped(result);
+	// ITestListener.super.onTestSkipped(result);
     }
 
     @Override
@@ -59,12 +59,12 @@ public class Listeners extends Configurations implements ITestListener {
     public void onFinish(ITestContext context) {
 	ext.flush();
     }
-    
+
     public void screenShot(ITestResult result) {
 	String testcaseName = result.getMethod().getMethodName();
 	WebDriver driver = null;
 	try {
-	    driver=(WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+	    driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
 	} catch (IllegalArgumentException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
@@ -78,7 +78,7 @@ public class Listeners extends Configurations implements ITestListener {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	extent.get().addScreenCaptureFromPath(screenShot(driver, testcaseName),testcaseName);
+	extent.get().addScreenCaptureFromPath(screenShot(driver, testcaseName), testcaseName);
     }
 
 }

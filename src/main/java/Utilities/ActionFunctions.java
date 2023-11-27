@@ -17,15 +17,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.assertthat.selenium_shutterbug.core.Capture;
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
+
 public class ActionFunctions extends Configurations {
 
     public void launchUrl(String url) {
 	try {
 	    driver.get(url);
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	} catch (Exception e) {
 	    System.out.println("unable to launch the url");
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	}
     }
 
@@ -35,12 +38,12 @@ public class ActionFunctions extends Configurations {
 	    ele.isDisplayed();
 	    System.out.println("clicked on : " + ele.getText());
 	    ele.click();
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	    flag = true;
 	} catch (Exception e) {
 	    System.out.println("No suchElement Exception");
 	    flag = false;
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	}
 	return flag;
     }
@@ -52,11 +55,11 @@ public class ActionFunctions extends Configurations {
 	    System.out.println("Entered text : " + text);
 	    ele.sendKeys(text);
 	    flag = true;
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	} catch (Exception e) {
 	    System.out.println("No suchElement Exception");
 	    flag = false;
-	    screenCapture(driver);
+	    screenCaptureFull(driver);
 	}
 	return flag;
     }
@@ -78,9 +81,8 @@ public class ActionFunctions extends Configurations {
 
     public void screenCapture(WebDriver driver) {
 	String currentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH_mm_ss").format(new Date());
-	String fcurrentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH_mm").format(new Date());
-	String fileName = "ScreenShots" + fcurrentDateAndTime;
-	String destination = System.getProperty("user.dir") + "\\ScreenShots\\AllScreenShots\\" + fileName + "\\"
+	String fcurrentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
+	String destination = System.getProperty("user.dir") + "\\ScreenShots\\AllScreenShots\\" + fcurrentDateAndTime + "\\"
 		+ currentDateAndTime + ".png";
 	TakesScreenshot ts = (TakesScreenshot) driver;
 	File src = ts.getScreenshotAs(OutputType.FILE);
@@ -89,6 +91,14 @@ public class ActionFunctions extends Configurations {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+//	return destination;
+    }
+    
+    public void screenCaptureFull(WebDriver driver) {
+	String currentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
+	String destination = System.getProperty("user.dir") + "\\ScreenShots\\AllScreenShots\\" + currentDateAndTime + ".png";
+	Shutterbug.shootPage(driver, Capture.FULL, true).save(destination);
+//	return destination;
     }
 
     public String decodeBase64(String encodedString) {

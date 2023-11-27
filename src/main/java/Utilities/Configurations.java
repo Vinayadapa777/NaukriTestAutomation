@@ -28,6 +28,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import com.assertthat.selenium_shutterbug.core.Capture;
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -52,7 +54,7 @@ public class Configurations {
 	    e.printStackTrace();
 	}
 	prop = new Properties();
-	try { 
+	try {
 	    prop.load(fis);
 	} catch (IOException e) {
 	    e.printStackTrace();
@@ -72,6 +74,7 @@ public class Configurations {
 
 	    }
 	    driver = new ChromeDriver(co);
+
 	    if (!browserName.contains("headless")) {
 		driver.manage().window().maximize();
 	    } else {
@@ -121,13 +124,9 @@ public class Configurations {
     }
 
     public String fullScreenShot(WebDriver driver, String testcase) {
-	String destination = System.getProperty("user.dir") + "\\ScreenShots\\" + testcase + ".png";
-	Screenshot ss = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
-	try {
-	    ImageIO.write(ss.getImage(), "png", new File(destination));
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
+	String currentDateAndTime = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
+	String destination = System.getProperty("user.dir") + "\\ScreenShots\\AllScreenShots\\" +testcase+ currentDateAndTime + ".png";
+	Shutterbug.shootPage(driver, Capture.FULL, true).save(destination);
 	return destination;
     }
 
@@ -163,6 +162,8 @@ public class Configurations {
 	return ex;
 
     }
+
+    
 
     @BeforeTest
     public void launchBrowser() {

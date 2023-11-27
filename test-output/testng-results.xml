@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-25T21:12:36 IST" name="RegressionTest" finished-at="2023-11-25T21:13:29 IST" duration-ms="53321">
+  <suite started-at="2023-11-27T21:46:18 IST" name="RegressionTest" finished-at="2023-11-27T21:47:44 IST" duration-ms="86049">
     <groups>
     </groups>
-    <test started-at="2023-11-25T21:12:36 IST" name="Test" finished-at="2023-11-25T21:13:29 IST" duration-ms="53321">
+    <test started-at="2023-11-27T21:46:18 IST" name="Test" finished-at="2023-11-27T21:47:44 IST" duration-ms="86049">
       <class name="NaukriTestcases.NaukriTestcases">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@2796aeae]" started-at="2023-11-25T21:12:36 IST" name="launchBrowser" finished-at="2023-11-25T21:12:41 IST" duration-ms="5121" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@63f259c3]" started-at="2023-11-27T21:46:18 IST" name="launchBrowser" finished-at="2023-11-27T21:46:21 IST" duration-ms="3408" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="LaunchUrl()[pri:1, instance:NaukriTestcases.NaukriTestcases@2796aeae]" started-at="2023-11-25T21:12:41 IST" name="LaunchUrl" finished-at="2023-11-25T21:12:45 IST" duration-ms="4216" status="PASS">
+        <test-method signature="LaunchUrl()[pri:1, instance:NaukriTestcases.NaukriTestcases@63f259c3]" started-at="2023-11-27T21:46:21 IST" name="LaunchUrl" finished-at="2023-11-27T21:46:29 IST" duration-ms="8269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LaunchUrl -->
-        <test-method signature="user_Updates(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@2796aeae]" started-at="2023-11-25T21:12:46 IST" name="user_Updates" data-provider="userData" finished-at="2023-11-25T21:13:02 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="16173" status="PASS">
+        <test-method signature="user_Updates(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@63f259c3]" started-at="2023-11-27T21:46:30 IST" name="user_Updates" data-provider="userData" finished-at="2023-11-27T21:47:10 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="40007" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -41,7 +41,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- user_Updates -->
-        <test-method signature="user_Updates(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@2796aeae]" started-at="2023-11-25T21:13:04 IST" name="user_Updates" data-provider="userData" finished-at="2023-11-25T21:13:21 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="17314" status="PASS">
+        <test-method signature="user_Updates(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:NaukriTestcases.NaukriTestcases@63f259c3]" started-at="2023-11-27T21:47:10 IST" name="user_Updates" data-provider="userData" finished-at="2023-11-27T21:47:38 IST" depends-on-methods="NaukriTestcases.NaukriTestcases.LaunchUrl" duration-ms="28494" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -67,7 +67,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- user_Updates -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@2796aeae]" started-at="2023-11-25T21:13:24 IST" name="closeBrowser" finished-at="2023-11-25T21:13:29 IST" duration-ms="5525" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:NaukriTestcases.NaukriTestcases@63f259c3]" started-at="2023-11-27T21:47:38 IST" name="closeBrowser" finished-at="2023-11-27T21:47:44 IST" duration-ms="5203" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
