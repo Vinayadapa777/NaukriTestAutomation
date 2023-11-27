@@ -26,13 +26,14 @@ public class HomePage extends ActionFunctions {
     public WebElement viewProfile;
 
     public void Logout() throws InterruptedException {
+	explicitClickable(logoutHamburger,10);
 	click(logoutHamburger);
-	Thread.sleep(2000); 
+	explicitClickable(logoutButton,10);
 	click(logoutButton);
     }
 
     public void clickOnViewProfile() throws InterruptedException{
-	Thread.sleep(2000);
+	explicitClickable(viewProfile, 10);
 	click(viewProfile);
     }
 

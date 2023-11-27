@@ -12,7 +12,6 @@
           <include name="closeBrowser"/>
           <include name="user_Login" invocation-numbers="1"/>
           <include name="LaunchUrl"/>
-          <include name="uploadResume"/>
         </methods>
       </class> <!-- NaukriTestcases.NaukriTestcases -->
     </classes>
