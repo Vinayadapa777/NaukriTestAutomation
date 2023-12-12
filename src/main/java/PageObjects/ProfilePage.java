@@ -29,19 +29,18 @@ public class ProfilePage extends ActionFunctions {
 	click(updateResume);
 	String fileuploadPath = resume;
 	Thread.sleep(2000);
-	try { 
+	try {
 	    Runtime.getRuntime().exec(fileuploadPath);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
 	try {
-	explicitvisible(resumeSuccessMSG,5);
-	stringValidation("Success", resumeSuccessMSG);
-	 System.out.println("Resume Updated Successfully");
-	}
-	catch(Exception e){
+	    explicitVisible(resumeSuccessMSG, 5);
+	    stringValidation("Success", resumeSuccessMSG);
 	    System.out.println("Resume Updated Successfully");
-	}	
+	} catch (Exception e) {
+	    System.out.println("Resume Updated Successfully");
+	}
 //	click(downloadResume);
 //	File f = new File(downloadPath + "\\Resume.pdf");
 //	Thread.sleep(1500);

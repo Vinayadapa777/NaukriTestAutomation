@@ -27,9 +27,9 @@ public class LoginPage extends ActionFunctions {
     public void userLogin(String userEmail, String Password) throws InterruptedException {
 	explicitClickable(InitialLoginButton, 10);
 	click(InitialLoginButton);
-	enter(emailid, userEmail);
+	enterText(emailid, userEmail);
 	String pass = decodeBase64(Password);
-	enter(password, pass);
+	enterText(password, pass);
 	explicitClickable(login, 10);
 	click(login);
     }
