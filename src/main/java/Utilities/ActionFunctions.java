@@ -1,10 +1,14 @@
 package Utilities;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Iterator;
@@ -13,6 +17,12 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
@@ -509,4 +519,125 @@ public class ActionFunctions extends Configurations {
 	// listeners to capture bases On testMethods
     }
 
+    // Below function is the data path reader
+    public static String dataSheetPath() {
+	String sourcePath = System.getProperty("user.dir") + "\\InputFiles\\PDPTesting.xlsx";
+	return sourcePath;
+    }
+
+    public static String getData(int row, int column) throws IOException {
+	String path = dataSheetPath();
+	FileInputStream fis = new FileInputStream(path);
+	try (XSSFWorkbook wb = new XSSFWorkbook(fis)) {
+	    XSSFSheet sheet = wb.getSheetAt(0);
+	    XSSFRow currentRow = sheet.getRow(row);
+	    String cellValue = currentRow.getCell(column).getStringCellValue();
+	    return cellValue;
+	}
+    }
+
+    public static boolean setData(int row, int column, String value) throws IOException {
+	try {
+	    String path = dataSheetPath();
+	    FileInputStream fis = new FileInputStream(path);
+	    XSSFWorkbook wb = new XSSFWorkbook(fis);
+	    XSSFSheet sheet = wb.getSheetAt(0);
+	    XSSFRow currentrow = sheet.getRow(row);
+	    currentrow.getCell(column).setCellValue(value);
+	    FileOutputStream fos = new FileOutputStream(path);
+	    wb.write(fos);
+	    wb.close();
+	    return true;
+	} catch (Exception e) {
+	    System.out.println("Unable to set the data for the cell");
+	    return false;
+	}
+    }
+
+    public static String getDataOfColumn(int row, String columnName) throws Exception {
+	String cellValue = null;
+	String path = dataSheetPath();
+	FileInputStream fis = new FileInputStream(path);
+	try (XSSFWorkbook wb = new XSSFWorkbook(fis)) {
+	    XSSFSheet sheet = wb.getSheetAt(0);
+	    Iterator<Row> rows = sheet.iterator();
+	    Row topRow = rows.next();
+	    int column = -1;
+	    for (Cell cell : topRow) {
+		if (columnName.equalsIgnoreCase(cell.getStringCellValue())) {
+		    column = cell.getColumnIndex();
+		    break;
+		}
+	    }
+	    if (column != 1) {
+		XSSFRow currentRow = sheet.getRow(row);
+		XSSFCell currentCell = currentRow.getCell(column);
+		String data = currentCell.getStringCellValue();
+		cellValue = data;
+	    } else {
+		System.out.println("Column '" + columnName + "' not found.");
+	    }
+	}
+	return cellValue;
+    }
+
+    public static boolean setDataByColumnName(int row, String columnName, String setValue) throws IOException {
+	String path = dataSheetPath();
+	FileInputStream fis = new FileInputStream(path);
+	XSSFWorkbook wb = new XSSFWorkbook(fis);
+	XSSFSheet sheet = wb.getSheetAt(0);
+	Iterator<Row> rows = sheet.iterator();
+	Row topRow = rows.next();
+	int column = -1;
+	for (Cell cell : topRow) {
+	    if (columnName.equalsIgnoreCase(cell.getStringCellValue())) {
+		column = cell.getColumnIndex();
+		break;
+	    }
+	}
+	if (column != -1) {
+	    XSSFRow currentRow = sheet.getRow(row);
+	    XSSFCell currentCell = currentRow.createCell(column);
+	    currentCell.setCellValue(setValue);
+
+	    FileOutputStream fos = new FileOutputStream(path);
+	    wb.write(fos);
+	    wb.close();
+	    fis.close();
+	    fos.close();
+	    return true;
+	} else {
+	    System.out.println("Column '" + columnName + "' not found.");
+	    wb.close();
+	    fis.close();
+	    return false;
+	}
+    }
+
+    public static int calculateDaysBetween(String eDate) {
+	try {
+	    String currentdate = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
+	    String[] currentD = currentdate.split("_");
+	    int cdate = Integer.parseInt(currentD[0]);
+	    int cmonth = Integer.parseInt(currentD[1]);
+	    int cyear = Integer.parseInt(currentD[2]);
+
+	    String eventdate = eDate;
+	    String[] eventD = eventdate.split("/");
+	    int edate = Integer.parseInt(eventD[0]);
+	    int emonth = Integer.parseInt(eventD[1]);
+	    int eyear = Integer.parseInt(eventD[2]);
+
+	    LocalDate eventDate = LocalDate.of(eyear, emonth, edate);
+	    LocalDate currentDate = LocalDate.of(cyear, cmonth, cdate);
+
+	    int daysBetween = (int) ChronoUnit.DAYS.between(currentDate, eventDate);
+	    // System.out.println("Days between " + currentDate + " and " + eventDate + " is
+	    // " + daysBetween);
+	    return daysBetween;
+	} catch (Exception e) {
+	    System.out.println("Unable to get the date and find the Difference");
+	    return 0;
+	}
+    }
 }
